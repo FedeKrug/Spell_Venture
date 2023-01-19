@@ -37,13 +37,13 @@ public class InputManager : MonoBehaviour
 	private void Start()
 	{
 		_touchInput.Touch.TouchPress.started += ctx => StartTouch(ctx);
-		_touchInput.Touch.TouchPress.canceled+= ctx => EndTouch(ctx);
+		_touchInput.Touch.TouchPress.canceled += ctx => EndTouch(ctx);
 	}
 
 
 	private void StartTouch(InputAction.CallbackContext context)
 	{
-		Debug.Log("Start Touched " + _touchInput.Touch.TouchPosition.ReadValue<Vector2>());
+		//Debug.Log("Start Touched " + _touchInput.Touch.TouchPosition.ReadValue<Vector2>());
 		if (OnStartTouch != null)
 		{
 			OnStartTouch(_touchInput.Touch.TouchPosition.ReadValue<Vector2>(), (float)context.startTime);
@@ -51,7 +51,7 @@ public class InputManager : MonoBehaviour
 	}
 	private void EndTouch(InputAction.CallbackContext context)
 	{
-		Debug.Log("End Touched " + _touchInput.Touch.TouchPosition.ReadValue<Vector2>());
+		//Debug.Log("End Touched " + _touchInput.Touch.TouchPosition.ReadValue<Vector2>());
 		if (OnEndTouch != null)
 		{
 			OnEndTouch(_touchInput.Touch.TouchPosition.ReadValue<Vector2>(), (float)context.time);

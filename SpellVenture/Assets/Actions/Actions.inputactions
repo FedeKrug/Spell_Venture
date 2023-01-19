@@ -204,7 +204,7 @@
                 {
                     "name": "",
                     "id": "98a2cc3d-5599-40ff-8323-119f55261113",
-                    "path": "<Gamepad>/leftStick",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
