@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
 	[SerializeField] private Rigidbody2D _rb2d;
-	[SerializeField] private float jumpForce, speed;
+	[SerializeField] private float jumpForce, speed, speedMultiplier;
 	[SerializeField] private PlayerInput _playerInput;
 	private Vector2 _inputVector;
 
@@ -14,18 +14,12 @@ public class PlayerController : MonoBehaviour
 		_inputManager = InputManager.instance;	
 	}
 
-	
-
-	public void Movement(InputAction.CallbackContext context)
+	private void FixedUpdate()
 	{
-		var contexto = context.ReadValue<Vector2>(); //solo se llama cuando el value cambia
-		if (context.performed)
-		{
-			_rb2d.velocity = new Vector3(Input.GetAxisRaw("Horizontal") * speed * Time.fixedDeltaTime, _rb2d.velocity.y, this.transform.position.z);
-
-		}
-		Debug.Log(contexto);
+		
+		_rb2d.velocity = new Vector2(_inputVector.x * speed * Time.fixedDeltaTime, _rb2d.velocity.y);
 	}
+
 	public void Interact(InputAction.CallbackContext context)
 	{
 		if (context.performed) //cuando el context es presionado
@@ -33,29 +27,42 @@ public class PlayerController : MonoBehaviour
 			Debug.Log("Interactua");
 		}
 	}
-	public void Jumping(InputAction.CallbackContext context)
+	
+	////public void Jumping(InputAction.CallbackContext context)
+	//{
+	//	if (context.performed && Mathf.Abs(_rb2d.velocity.y) < 0.01f)
+	//	{
+	//		_rb2d.AddForce(Vector2.up * jumpForce * Time.deltaTime, ForceMode2D.Impulse);
+
+	//	}
+
+		
+	//}
+
+	private void Saltar()
 	{
-		if (context.performed && Mathf.Abs(_rb2d.velocity.y) < 0.01f)
+		if ( Mathf.Abs(_rb2d.velocity.y) < 0.01f)
 		{
 			_rb2d.AddForce(Vector2.up * jumpForce * Time.deltaTime, ForceMode2D.Impulse);
 
 		}
-
-		
+		//Debug.Log("Player has Jumped");
 	}
 
 	public void Attack()
 	{
 		Debug.Log("Player has Attacked");
-		//TODO: improve attack with animations and game feel.
+		//TODO: improve attack with animations and game feel and add damage & health.
 	}
 
 
 	public void OnMovement(InputValue value)
 	{
 		Vector2 moveInput = value.Get<Vector2>();
-		_inputVector = new Vector2(moveInput.x,0);
-		Debug.Log("Player has Moved");
+		_inputVector = new Vector2(moveInput.x * speed * Time.deltaTime, 0);
+		//Debug.Log("Player has Moved");
+		//Debug.Log(moveInput + " " +
+		//_inputVector + "Input Vector");
 
 	}
 
@@ -68,6 +75,14 @@ public class PlayerController : MonoBehaviour
 	private void OnInteract()
 	{
 		Debug.Log("Player has Interacted");
-
+		//TODO: Make abstract class for interactable objects with a method named "Interact();"
 	}
+
+	private void OnJumping()
+	{
+		Saltar();
+		//TODO: Improve jumping using regulable jump (check out the video about Celeste's jumping)
+	}
+
+	
 }
