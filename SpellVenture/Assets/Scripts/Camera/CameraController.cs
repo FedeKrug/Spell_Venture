@@ -14,9 +14,10 @@ public class CameraController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         this.transform.position = new Vector3(target.transform.position.x +xOffset, target.transform.position.y + yOffset, cameraPos.z);
+        //TODO: Optimize the camera controller and take reference from Stray Journey
     }
     
 }
