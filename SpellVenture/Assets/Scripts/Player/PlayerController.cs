@@ -63,7 +63,6 @@ namespace Game.Player
 
 		}
 
-
 		public void OnMovement(InputValue value)
 		{
 			Vector2 moveInput = value.Get<Vector2>();
@@ -90,11 +89,6 @@ namespace Game.Player
 			//_inputVector + "Input Vector");
 
 		}
-
-
-
-
-		
 
 		private void OnJumping()
 		{
