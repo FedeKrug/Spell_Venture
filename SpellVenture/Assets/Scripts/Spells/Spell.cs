@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Game.Spells
 {
-	public class Spell : MonoBehaviour
+	public class Spell : MonoBehaviour //TODO: Destroy the spells when they choke with anything in the game... and they should be destroyed by using time lapse
 	{
 		[SerializeField] protected float speed,damage, modifiedDamage;
 		[SerializeField] protected bool damageEffect;
