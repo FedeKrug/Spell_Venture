@@ -31,20 +31,10 @@ public class TestTouch : MonoBehaviour
 		transform.position = worldCordinates;
 	}
 }
-public interface Collectable
-{
-	public abstract void Collect();
-
-}
-public interface EnvironmentObject
-{
-	//Environmental Objects with automatic interaction when player goes through this.
-	public abstract void Interaction();
-}
 
 
 
-public class Grass : EnvironmentObject
+public class Grass : Objeto, EnvironmentObject
 {
 	public void Interaction()
 	{

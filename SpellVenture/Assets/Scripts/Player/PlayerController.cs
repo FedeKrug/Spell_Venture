@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
 	public void Attack()
 	{
 		Debug.Log("Player has Attacked");
-		//TODO: improve attack with animations and game feel and add damage & health.
+
 	}
 
 
@@ -85,10 +85,7 @@ public class PlayerController : MonoBehaviour
 	}
 
 
-	private void OnAttack(InputValue value)
-	{
-		Attack();
-	}
+	
 
 	private void OnInteract()
 	{
