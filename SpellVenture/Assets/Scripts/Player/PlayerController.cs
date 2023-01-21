@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private Rigidbody2D _rb2d;
 	[SerializeField] private float jumpForce, speed, speedMultiplier;
 	[SerializeField] private PlayerInput _playerInput;
+	[SerializeField] private SpriteRenderer _spriteRenderer;
 	private Vector2 _inputVector;
 
 	private InputManager _inputManager;
@@ -60,6 +61,23 @@ public class PlayerController : MonoBehaviour
 	{
 		Vector2 moveInput = value.Get<Vector2>();
 		_inputVector = new Vector2(moveInput.x * speed * Time.deltaTime, 0);
+		if (_inputVector.x >0)
+		{
+			if (_inputVector.x ==0 || _inputVector.x>0)
+			{
+			_spriteRenderer.flipX = false;
+
+			}
+		}
+		else if(_inputVector.x<0)
+		{
+			if (_inputVector.x == 0 || _inputVector.x < 0)
+			{
+				_spriteRenderer.flipX = true;
+
+			}
+
+		}
 		//Debug.Log("Player has Moved");
 		//Debug.Log(moveInput + " " +
 		//_inputVector + "Input Vector");
