@@ -1,19 +1,23 @@
 ﻿using UnityEngine;
 
-public class PlayerShooting : MonoBehaviour
+namespace Game.Player
 {
-	[SerializeField] private GameObject _spellsSpawner;
-	[SerializeField] private GameObject _spell;
-
-
-	public void Attack()
+	public class PlayerShooting : MonoBehaviour
 	{
-		Debug.Log("Player has Attacked");
-		//TODO: improve attack with animations and game feel and add damage & health.
+		[SerializeField] private GameObject _spellsSpawner;
+		[SerializeField] private GameObject _spell;
 
+
+		public void Attack()
+		{
+			Debug.Log("Player has Attacked");
+			//TODO: improve attack with animations and game feel and add damage & health.
+
+		}
+		private void OnSpellAttack()
+		{
+			Attack();
+		}
 	}
-	private void OnAttack()
-	{
-		Attack();
-	}
+
 }

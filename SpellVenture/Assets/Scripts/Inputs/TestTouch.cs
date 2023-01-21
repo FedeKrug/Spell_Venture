@@ -31,13 +31,3 @@ public class TestTouch : MonoBehaviour
 		transform.position = worldCordinates;
 	}
 }
-
-
-
-public class Grass : Objeto, EnvironmentObject
-{
-	public void Interaction()
-	{
-		//TODO: play any animation and play a sound
-	}
-}

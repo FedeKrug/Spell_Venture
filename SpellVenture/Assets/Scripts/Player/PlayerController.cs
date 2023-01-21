@@ -1,103 +1,108 @@
 using UnityEngine;
+using System.Collections.Generic;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour
+
+namespace Game.Player
 {
-	[SerializeField] private Rigidbody2D _rb2d;
-	[SerializeField] private float jumpForce, speed, speedMultiplier;
-	[SerializeField] private PlayerInput _playerInput;
-	[SerializeField] private SpriteRenderer _spriteRenderer;
-	private Vector2 _inputVector;
-
-	private InputManager _inputManager;
-	private void Awake()
+	public class PlayerController : MonoBehaviour
 	{
-		_inputManager = InputManager.instance;	
-	}
+		[SerializeField] private Rigidbody2D _rb2d;
+		[SerializeField] private float jumpForce, speed, speedMultiplier;
+		[SerializeField] private PlayerInput _playerInput;
+		[SerializeField] private SpriteRenderer _spriteRenderer;
+		[SerializeField] private Animator _anim;
+		[SerializeField] private List<AnimationClip> _animations;
+		private Vector2 _inputVector;
 
-	private void FixedUpdate()
-	{
-		
-		_rb2d.velocity = new Vector2(_inputVector.x * speed * Time.fixedDeltaTime, _rb2d.velocity.y);
-	}
-
-	public void Interact(InputAction.CallbackContext context)
-	{
-		if (context.performed) //cuando el context es presionado
+		private InputManager _inputManager;
+		private void Awake()
 		{
-			Debug.Log("Interactua");
+			_inputManager = InputManager.instance;
 		}
-	}
-	
-	////public void Jumping(InputAction.CallbackContext context)
-	//{
-	//	if (context.performed && Mathf.Abs(_rb2d.velocity.y) < 0.01f)
-	//	{
-	//		_rb2d.AddForce(Vector2.up * jumpForce * Time.deltaTime, ForceMode2D.Impulse);
 
-	//	}
-
-		
-	//}
-
-	private void Saltar()
-	{
-		if ( Mathf.Abs(_rb2d.velocity.y) < 0.01f)
+		private void FixedUpdate()
 		{
-			_rb2d.AddForce(Vector2.up * jumpForce * Time.deltaTime, ForceMode2D.Impulse);
 
+			_rb2d.velocity = new Vector2(_inputVector.x * speed * Time.fixedDeltaTime, _rb2d.velocity.y);
 		}
-		//Debug.Log("Player has Jumped");
-	}
 
-	public void Attack()
-	{
-		Debug.Log("Player has Attacked");
-
-	}
-
-
-	public void OnMovement(InputValue value)
-	{
-		Vector2 moveInput = value.Get<Vector2>();
-		_inputVector = new Vector2(moveInput.x * speed * Time.deltaTime, 0);
-		if (_inputVector.x >0)
+		public void Interact(InputAction.CallbackContext context)
 		{
-			if (_inputVector.x ==0 || _inputVector.x>0)
+			if (context.performed) //cuando el context es presionado
 			{
-			_spriteRenderer.flipX = false;
-
+				Debug.Log("Interactua");
 			}
 		}
-		else if(_inputVector.x<0)
+
+		////public void Jumping(InputAction.CallbackContext context)
+		//{
+		//	if (context.performed && Mathf.Abs(_rb2d.velocity.y) < 0.01f)
+		//	{
+		//		_rb2d.AddForce(Vector2.up * jumpForce * Time.deltaTime, ForceMode2D.Impulse);
+
+		//	}
+
+
+		//}
+
+		private void Saltar()
 		{
-			if (_inputVector.x == 0 || _inputVector.x < 0)
+			if (Mathf.Abs(_rb2d.velocity.y) < 0.01f)
 			{
-				_spriteRenderer.flipX = true;
+				_rb2d.AddForce(Vector2.up * jumpForce * Time.deltaTime, ForceMode2D.Impulse);
 
 			}
+			//Debug.Log("Player has Jumped"); 
+		}
+
+		public void Attack()
+		{
+			Debug.Log("Player has Attacked"); //Melee Attack
+			_anim.Play(_animations[0].ToString()); //Attack Animation
 
 		}
-		//Debug.Log("Player has Moved");
-		//Debug.Log(moveInput + " " +
-		//_inputVector + "Input Vector");
+
+
+		public void OnMovement(InputValue value)
+		{
+			Vector2 moveInput = value.Get<Vector2>();
+			_inputVector = new Vector2(moveInput.x * speed * Time.deltaTime, 0);
+			if (_inputVector.x > 0)
+			{
+				if (_inputVector.x == 0 || _inputVector.x > 0)
+				{
+					_spriteRenderer.flipX = false;
+
+				}
+			}
+			else if (_inputVector.x < 0)
+			{
+				if (_inputVector.x == 0 || _inputVector.x < 0)
+				{
+					_spriteRenderer.flipX = true;
+
+				}
+
+			}
+			//Debug.Log("Player has Moved");
+			//Debug.Log(moveInput + " " +
+			//_inputVector + "Input Vector");
+
+		}
+
+
+
+
+		
+
+		private void OnJumping()
+		{
+			Saltar();
+			//TODO: Improve jumping using regulable jump (check out the video about Celeste's jumping)
+		}
+
 
 	}
 
-
-	
-
-	private void OnInteract()
-	{
-		Debug.Log("Player has Interacted");
-		//TODO: Make abstract class for interactable objects with a method named "Interact();"
-	}
-
-	private void OnJumping()
-	{
-		Saltar();
-		//TODO: Improve jumping using regulable jump (check out the video about Celeste's jumping)
-	}
-
-	
 }
