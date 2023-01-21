@@ -11,6 +11,7 @@ namespace Game.Player
 		[SerializeField] private float jumpForce, speed, speedMultiplier;
 		[SerializeField] private PlayerInput _playerInput;
 		[SerializeField] private SpriteRenderer _spriteRenderer;
+		[SerializeField] private Transform _spellSpawner;
 		[SerializeField] private Animator _anim;
 		[SerializeField] private List<AnimationClip> _animations;
 		private Vector2 _inputVector;
@@ -71,16 +72,20 @@ namespace Game.Player
 			{
 				if (_inputVector.x == 0 || _inputVector.x > 0)
 				{
-					_spriteRenderer.flipX = false;
-
+					//_spriteRenderer.flipX = false;
+					Transform playerRot = gameObject.transform;
+					playerRot.eulerAngles = new Vector3(0, 180, 0);
+					_spellSpawner.eulerAngles = new Vector3(0, 0, 0);
 				}
 			}
 			else if (_inputVector.x < 0)
 			{
 				if (_inputVector.x == 0 || _inputVector.x < 0)
 				{
-					_spriteRenderer.flipX = true;
-
+					Transform playerRot = gameObject.transform;
+					playerRot.eulerAngles = new Vector3(0, 180, 0);
+					_spellSpawner.eulerAngles = new Vector3(0, 180, 0);
+					
 				}
 
 			}

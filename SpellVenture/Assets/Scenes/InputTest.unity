@@ -7675,6 +7675,7 @@ MonoBehaviour:
   speedMultiplier: 1
   _playerInput: {fileID: 382042056}
   _spriteRenderer: {fileID: 401828516}
+  _spellSpawner: {fileID: 1611715392}
   _anim: {fileID: 382042058}
   _animations: []
 --- !u!50 &382042053

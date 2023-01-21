@@ -19,8 +19,9 @@ namespace Game.Spells
 
 		private void FixedUpdate()
 		{
-			_rb2d.AddForce(new Vector2(speed * Time.fixedDeltaTime, _rb2d.position.y));
+			//_rb2d.AddForce(new Vector2( speed * Time.fixedDeltaTime, _rb2d.position.y));
 			//_rb2d.AddForce(Vector2.right * speed * Time.fixedDeltaTime, ForceMode2D.Impulse);
+			_rb2d.velocity = transform.right * speed * Time.fixedDeltaTime;
 		}
 	}
 
