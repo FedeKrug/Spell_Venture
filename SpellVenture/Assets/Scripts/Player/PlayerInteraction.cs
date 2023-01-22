@@ -2,48 +2,44 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Game.Objects;
+
+
 namespace Game.Player
 {
 	public class PlayerInteraction : MonoBehaviour
 	{
 
-		[SerializeField] private Transform _interactableDetector;
-		[SerializeField] private float _rayDistance;
 		[SerializeField] private GameObject _keyToInteractUI;
-		[SerializeField] private bool interactable;
-		[SerializeField] private LayerMask _interactableLayers;
+		[SerializeField] private List<Interactable> _interactableList = new List<Interactable>();
+
+
 		private void OnTriggerEnter2D(Collider2D collision)
 		{
-			if (collision.GetComponent<Interactable>() != null)
+			var interactable = collision.GetComponent<Interactable>();
+			if (interactable != null)
 			{
 				Debug.Log("This object is interactable");
-				interactable = true;
+				_interactableList.Add(interactable);
 			}
 		}
 		private void OnTriggerExit2D(Collider2D collision)
 		{
-			if (collision.GetComponent<Interactable>() != null)
+			var interactable = collision.GetComponent<Interactable>();
+			if (interactable != null)
 			{
 				Debug.Log("There are no interactions");
-				interactable = false;
+				_interactableList.Remove(interactable);
 			}
 		}
 
 		public void OnInteract()
 		{
-
-			if (!interactable)
-			{
-				Debug.LogError("Player can't interact with this");
-				return;
-			}
 			Debug.Log("Player is interacting");
-			Objeto.instance.GetComponent<Interactable>();
 
-			if (Objeto.instance.GetComponent<Interactable>() != null)
+			if (_interactableList.Count > 0)
 			{
-				Debug.Log("Player can interact with this object");
-				Objeto.instance.GetComponent<Interactable>().Interact();
+				_interactableList[_interactableList.Count - 1]?.Interact();
+				Debug.Log(_interactableList[_interactableList.Count - 1]);
 			}
 		}
 	}

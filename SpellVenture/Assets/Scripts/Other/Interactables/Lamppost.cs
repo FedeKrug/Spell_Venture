@@ -2,11 +2,12 @@
 
 namespace Game.Objects
 {
-	public class Lamppost : Objeto, Interactable
+	public class Lamppost : MonoBehaviour, Interactable
 	{
 		[SerializeField] private bool _isActive;
 		[SerializeField] private SpriteRenderer _spRef;
-
+		
+		
 
 		public void Interact()
 		{

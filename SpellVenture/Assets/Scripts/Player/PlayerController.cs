@@ -51,7 +51,6 @@ namespace Game.Player
 		{
 			if (Mathf.Abs(_rb2d.velocity.y) < 0.01f)
 			{
-				//_rb2d.AddForce(Vector2.up * jumpForce * Time.deltaTime, ForceMode2D.Impulse);
 				_rb2d.velocity = Vector2.up * jumpForce ;
 
 			}
@@ -96,11 +95,7 @@ namespace Game.Player
 
 		}
 
-		private void OnJumping()
-		{
-			Saltar();
-			//TODO: Improve jumping using regulable jump (check out the video about Celeste's jumping)
-		}
+		
 
 
 	}

@@ -2,7 +2,7 @@
 
 namespace Game.Objects
 {
-	public class Grass : Objeto, EnvironmentObject
+	public class Grass : MonoBehaviour, EnvironmentObject
 	{
 		public void Interaction()
 		{

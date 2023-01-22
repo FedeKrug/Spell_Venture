@@ -2,7 +2,7 @@
 
 namespace Game.Objects
 {
-	public  class Portal : Objeto, Interactable
+	public  class Portal : MonoBehaviour, Interactable
 	{
 		public void Interact()
 		{
