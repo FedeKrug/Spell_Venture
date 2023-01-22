@@ -51,7 +51,8 @@ namespace Game.Player
 		{
 			if (Mathf.Abs(_rb2d.velocity.y) < 0.01f)
 			{
-				_rb2d.AddForce(Vector2.up * jumpForce * Time.deltaTime, ForceMode2D.Impulse);
+				//_rb2d.AddForce(Vector2.up * jumpForce * Time.deltaTime, ForceMode2D.Impulse);
+				_rb2d.velocity = Vector2.up * jumpForce ;
 
 			}
 			//Debug.Log("Player has Jumped"); 
