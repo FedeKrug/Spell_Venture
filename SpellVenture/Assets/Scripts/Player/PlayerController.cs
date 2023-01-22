@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 namespace Game.Player
 {
-	public class PlayerController : MonoBehaviour
+	public class PlayerController : MonoBehaviour //TODO: Climbing walls mechanic
 	{
 		[SerializeField] private Rigidbody2D _rb2d;
 		[SerializeField] private float jumpForce, speed, speedMultiplier;
@@ -22,36 +22,17 @@ namespace Game.Player
 			_inputManager = InputManager.instance;
 		}
 
-		private void Update()
+		private void FixedUpdate()
 		{
-
-			_rb2d.velocity = new Vector2(_inputVector.x * speed * Time.deltaTime, _rb2d.velocity.y);
+			_rb2d.velocity = new Vector2(_inputVector.x * speed * Time.fixedDeltaTime, _rb2d.velocity.y);
 		}
 
-		//public void Interact(InputAction.CallbackContext context)
-		//{
-		//	if (context.performed) //cuando el context es presionado
-		//	{
-		//		Debug.Log("Interactua");
-		//	}
-		//}
-
-
-		//private void Saltar()
-		//{
-		//	if (Mathf.Abs(_rb2d.velocity.y) < 0.01f)
-		//	{
-		//		_rb2d.velocity = Vector2.up * jumpForce ;
-
-		//	}
-		//	//Debug.Log("Player has Jumped"); 
-		//}
+		
 
 		public void Attack()
 		{
 			Debug.Log("Player has Attacked"); //Melee Attack
 			_anim.Play(_animations[0].ToString()); //Attack Animation
-
 		}
 
 		public void OnMovement(InputValue value)

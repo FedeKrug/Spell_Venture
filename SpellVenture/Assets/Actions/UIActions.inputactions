@@ -65,8 +65,30 @@
                 },
                 {
                     "name": "",
+                    "id": "c4d2aa92-756e-4f6d-b62a-0427bee8ae22",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ChangeScene",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "f3e6e4cc-e71e-4d37-8306-c2c6b4dc645d",
                     "path": "<Touchscreen>/Press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ActiveScreen",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "36632763-3e65-4e8e-b5ef-a20fbe5abb0a",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -87,6 +109,17 @@
                 },
                 {
                     "name": "",
+                    "id": "233ca2ce-eb03-4366-8a65-89b52f7c31a4",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Exit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "97a0ec68-722b-47b2-9215-ca6b8e226ae4",
                     "path": "<Touchscreen>/Press",
                     "interactions": "",
@@ -98,8 +131,30 @@
                 },
                 {
                     "name": "",
+                    "id": "c1d6a335-c7d7-463d-8bcf-968676ceba3e",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GoBackButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "af5f4e67-ad31-45b4-8099-1a6e2a9c5c30",
                     "path": "<Touchscreen>/Press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ReloadScene",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "41b5612a-f2e9-4fdb-b639-6d8ceb09337b",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
