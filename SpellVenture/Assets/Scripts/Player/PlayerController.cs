@@ -28,34 +28,24 @@ namespace Game.Player
 			_rb2d.velocity = new Vector2(_inputVector.x * speed * Time.fixedDeltaTime, _rb2d.velocity.y);
 		}
 
-		public void Interact(InputAction.CallbackContext context)
-		{
-			if (context.performed) //cuando el context es presionado
-			{
-				Debug.Log("Interactua");
-			}
-		}
-
-		////public void Jumping(InputAction.CallbackContext context)
+		//public void Interact(InputAction.CallbackContext context)
 		//{
-		//	if (context.performed && Mathf.Abs(_rb2d.velocity.y) < 0.01f)
+		//	if (context.performed) //cuando el context es presionado
 		//	{
-		//		_rb2d.AddForce(Vector2.up * jumpForce * Time.deltaTime, ForceMode2D.Impulse);
-
+		//		Debug.Log("Interactua");
 		//	}
-
-
 		//}
 
-		private void Saltar()
-		{
-			if (Mathf.Abs(_rb2d.velocity.y) < 0.01f)
-			{
-				_rb2d.velocity = Vector2.up * jumpForce ;
 
-			}
-			//Debug.Log("Player has Jumped"); 
-		}
+		//private void Saltar()
+		//{
+		//	if (Mathf.Abs(_rb2d.velocity.y) < 0.01f)
+		//	{
+		//		_rb2d.velocity = Vector2.up * jumpForce ;
+
+		//	}
+		//	//Debug.Log("Player has Jumped"); 
+		//}
 
 		public void Attack()
 		{
@@ -85,19 +75,11 @@ namespace Game.Player
 					Transform playerRot = gameObject.transform;
 					playerRot.eulerAngles = new Vector3(0, 180, 0);
 					_spellSpawner.eulerAngles = new Vector3(0, 180, 0);
-					
+
 				}
 
 			}
-			//Debug.Log("Player has Moved");
-			//Debug.Log(moveInput + " " +
-			//_inputVector + "Input Vector");
-
 		}
-
-		
-
-
 	}
 
 }

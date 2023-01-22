@@ -1,17 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.InputSystem;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Game.Player
 {
+	
 	public class BetterJump : MonoBehaviour
 	{
-		[SerializeField, Range(0, 10)] float _lowJumpMultiplier, _fallMultiplier;
+		[SerializeField, Range(0, 100)] float _lowJumpMultiplier, _fallMultiplier;
 
 		[SerializeField] private Rigidbody2D _rb2d;
 		[SerializeField] private Animator _anim;
 
+		private void Update()
+		{
+			Jumping();
+		}
 
 		public void Jumping()
 		{
@@ -22,12 +25,18 @@ namespace Game.Player
 			}
 		}
 
+		public void Falling()
+		{
+			_rb2d.velocity += Vector2.up * Physics2D.gravity.y * (_lowJumpMultiplier - 1) * Time.deltaTime;
+
+		}
 		public void Salto(InputAction.CallbackContext context)
 		{
-			if (context.performed)
+			if (context.canceled)
 			{
-				Jumping();
+				Falling();
 			}
+			
 		}
 	}
 
