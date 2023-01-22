@@ -74,7 +74,7 @@ namespace Game.Player
 				{
 					//_spriteRenderer.flipX = false;
 					Transform playerRot = gameObject.transform;
-					playerRot.eulerAngles = new Vector3(0, 180, 0);
+					playerRot.eulerAngles = new Vector3(0, 0, 0);
 					_spellSpawner.eulerAngles = new Vector3(0, 0, 0);
 				}
 			}
