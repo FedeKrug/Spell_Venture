@@ -22,10 +22,10 @@ namespace Game.Player
 			_inputManager = InputManager.instance;
 		}
 
-		private void FixedUpdate()
+		private void Update()
 		{
 
-			_rb2d.velocity = new Vector2(_inputVector.x * speed * Time.fixedDeltaTime, _rb2d.velocity.y);
+			_rb2d.velocity = new Vector2(_inputVector.x * speed * Time.deltaTime, _rb2d.velocity.y);
 		}
 
 		//public void Interact(InputAction.CallbackContext context)
