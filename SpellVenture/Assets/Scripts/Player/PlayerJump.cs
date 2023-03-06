@@ -26,7 +26,6 @@ namespace Game.Player
 		private void OnJumping()
 		{
 			Saltar();
-			//TODO: Improve jumping using regulable jump (check out the video about Celeste's jumping)
 		}
 	}
 
