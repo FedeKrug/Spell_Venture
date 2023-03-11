@@ -15,10 +15,12 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 
-public partial class @Player : IInputActionCollection2, IDisposable
+
+
+public partial class PlayerInputAction : IInputActionCollection2, IDisposable
 {
     public InputActionAsset asset { get; }
-    public @Player()
+    public PlayerInputAction()
     {
         asset = InputActionAsset.FromJson(@"{
     ""name"": ""Player"",
@@ -438,8 +440,8 @@ public partial class @Player : IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerControls_CameraMovement;
     public struct PlayerControlsActions
     {
-        private @Player m_Wrapper;
-        public PlayerControlsActions(@Player wrapper) { m_Wrapper = wrapper; }
+        private PlayerInputAction m_Wrapper;
+        public PlayerControlsActions(PlayerInputAction wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_PlayerControls_Movement;
         public InputAction @SpellAttack => m_Wrapper.m_PlayerControls_SpellAttack;
         public InputAction @Interact => m_Wrapper.m_PlayerControls_Interact;
