@@ -37,7 +37,7 @@ namespace Game.Player
 
 		public void OnMovement(InputValue value)
 		{
-			Vector2 moveInput = value.Get<Vector2>();
+			Vector2 moveInput = value.Get<Vector2>().normalized;
 			_inputVector = new Vector2(moveInput.x * speed * Time.deltaTime, 0);
 			if (_inputVector.x > 0)
 			{

@@ -10,7 +10,6 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D rb2d;
     Animator anim;
     SpriteRenderer sprite;
-    // Start is called before the first frame update
     void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
@@ -19,7 +18,6 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         float moveX = /*Input.GetAxisRaw("Horizontal")*/ 0;
