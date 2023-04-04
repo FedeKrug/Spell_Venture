@@ -9,7 +9,7 @@ namespace Game.Player
 		[SerializeField] private Animator _anim;
 		[SerializeField] private AnimationClip _attackAnimation;
 		[SerializeField] private KeyCode _attackKey;
-		[SerializeField] private float _animationTime;
+		[SerializeField] private float _attackCooldown; //TODO: Improve the melee attack to be more like Hollow Knight.
 		private void Update()
 		{
 			if (Input.GetKeyDown(_attackKey))
@@ -20,8 +20,7 @@ namespace Game.Player
 		}
 		IEnumerator Attack()
 		{
-			
-			yield return new WaitForSeconds(_animationTime);
+			yield return new WaitForSeconds(_attackCooldown);
 			_anim.SetBool("Attacking", false);
 		}
 
