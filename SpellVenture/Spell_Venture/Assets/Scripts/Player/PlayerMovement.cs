@@ -12,7 +12,6 @@ namespace Game.Player
 		[SerializeField] private Rigidbody2D _rb2d;
 		[SerializeField] private float _minMovementSpeed, _maxMovementSpeed;
 		[SerializeField] private string _horizontalAxis;
-		//[SerializeField] private SpriteRenderer _spriteR;
 		private Vector2 _moveInput;
 		private float _movementSpeed;
 
@@ -22,7 +21,7 @@ namespace Game.Player
 		}
 		private void Update()
 		{
-			_moveInput = new Vector2(Input.GetAxisRaw(_horizontalAxis), transform.position.y).normalized;
+			_moveInput = new Vector2(Input.GetAxisRaw(_horizontalAxis), 0).normalized;
 
 			if (_moveInput.x>0)
 			{
