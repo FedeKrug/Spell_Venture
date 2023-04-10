@@ -8,7 +8,7 @@ namespace Game.Camera
 	public class CameraController : MonoBehaviour
 	{
 		[SerializeField] private Transform _target;
-		[SerializeField] private float _cameraSmoothSpeed;
+		[SerializeField, Range(-1,1)] private float _cameraSmoothSpeed;
 
 		private Vector3 _offset;
 
