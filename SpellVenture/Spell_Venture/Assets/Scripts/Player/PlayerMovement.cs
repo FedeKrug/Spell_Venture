@@ -61,4 +61,8 @@ namespace Game.Player
 			_rb2d.velocity += _moveInput * _movementSpeed * Time.fixedDeltaTime;
 		}
 	}
+	public class PlayerClimb : MonoBehaviour
+	{
+
+	}
 }
