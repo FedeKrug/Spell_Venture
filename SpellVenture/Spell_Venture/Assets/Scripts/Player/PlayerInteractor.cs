@@ -32,6 +32,7 @@ namespace Game.Player
 				if (interactable == null) return;
 				_interactableList.Add(interactable);
 			}
+			
 		}
 
 		private void OnTriggerExit2D(Collider2D collision)
@@ -46,5 +47,5 @@ namespace Game.Player
 	}
 
 
-	
+
 }

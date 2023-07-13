@@ -20,7 +20,7 @@ namespace Game.Player
 
 		private bool _canMove;
 
-		private void Awake()
+		private void Start()
 		{
 			_movementSpeed = _minMovementSpeed;
 		}
@@ -61,8 +61,5 @@ namespace Game.Player
 			_rb2d.velocity += _moveInput * _movementSpeed * Time.fixedDeltaTime;
 		}
 	}
-	public class PlayerClimb : MonoBehaviour
-	{
 
-	}
 }

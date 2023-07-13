@@ -26,12 +26,11 @@ namespace Game.Player
 			if (Input.GetKeyDown(_attackKey))
 			{
 				_anim.SetTrigger(_attackAnimationParam);
-				
 			}
 		}
 		public void OnAttack(float damage)
 		{
-			Debug.Log($"Player attacked with a damage of {damage}");
+			//Debug.Log($"Player attacked with a damage of {damage}");
 			Collider2D [] catchedStuff = Physics2D.OverlapCircleAll(_attackObjectPosition.position,_attackRange);
 			foreach (Collider2D enemyCatched in catchedStuff)
 			{

@@ -27,15 +27,16 @@ public class EnemyHealth : MonoBehaviour, IDamagable
 		}
 	}
 
-	private static void Die()
+	private void Die()
 	{
-		Debug.Log("Die()");
-		
+		//Debug.Log("Die()");
+		StartCoroutine(CO_Death());
 	}
 	private IEnumerator CO_Death()
 	{
 		yield return null;
 		Debug.Log("Death or animation ?? ");
+		gameObject.SetActive(false);
 	}
 
 	public void DamagedFeedback()
