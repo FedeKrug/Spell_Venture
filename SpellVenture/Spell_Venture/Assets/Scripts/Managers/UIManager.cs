@@ -7,6 +7,8 @@ namespace Game.Managers
 	{
 		public static UIManager instance;
 		[SerializeField] private TextMeshProUGUI _mainText;
+		[SerializeField] private Image _healthBar;
+
 
 		private void Awake()
 		{
