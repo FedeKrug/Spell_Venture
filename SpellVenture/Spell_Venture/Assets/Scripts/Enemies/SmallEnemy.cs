@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class SmallEnemy : Enemy
 {
-	[SerializeField] private float _timeToTurnAround;
+	[SerializeField] private float _minTimeToTurnAround;
+	[SerializeField] private float _maxTimeToTurnAround;
 	private bool _turned;
 	private void Start()
 	{
@@ -30,7 +31,9 @@ public class SmallEnemy : Enemy
 		_turned = !_turned;
 		_movementSpeed *= -1;
 		Move();
-		yield return new WaitForSeconds(_timeToTurnAround);
+		yield return new WaitForSeconds(Random.Range(_minTimeToTurnAround, _maxTimeToTurnAround));
+		_rb.velocity = Vector2.zero;
+		yield return null;
 		StartCoroutine(CO_MoveAround());
 
 	}
