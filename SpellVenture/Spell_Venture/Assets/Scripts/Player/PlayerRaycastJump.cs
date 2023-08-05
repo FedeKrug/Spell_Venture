@@ -45,6 +45,7 @@ namespace Game.Player
 			{
 				_rb2d.velocity += Vector2.up * Physics2D.gravity.y * (_lowJumpMultiplier - 1) * Time.deltaTime;
 			}
+
 		}
 
 		public void Jump()
