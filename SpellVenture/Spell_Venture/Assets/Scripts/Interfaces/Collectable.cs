@@ -2,6 +2,6 @@
 {
 	public interface Collectable
 	{
-		public void Collect();
+		public void Collected(); //Que sucede cuando el collectable es coleccionado...
 	}
 }

@@ -1,6 +1,4 @@
-﻿
-using UnityEngine;
-using System.Collections;
+﻿using UnityEngine;
 
 namespace Game.Player
 {
@@ -18,8 +16,6 @@ namespace Game.Player
 		[Header("Positions")]
 		[SerializeField] private Transform _attackObjectPosition;
 		[SerializeField] private float _attackRange;
-
-
 		
 		private void Update()
 		{
@@ -40,8 +36,8 @@ namespace Game.Player
 					catchedEnemy.TakeDamage(damage);
 				}
 			}
-
 		}
+
 		public void ResetAnimationTrigger()
 		{
 			_anim.ResetTrigger(_attackAnimationParam);

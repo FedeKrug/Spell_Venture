@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour, IDamagable
@@ -42,5 +41,6 @@ public class EnemyHealth : MonoBehaviour, IDamagable
 	public void DamagedFeedback()
 	{
 		//TODO: Animation or particles or change material emmisive ??
+		Debug.Log($"Enemy was damaged and its life is {_health}");
 	}
 }

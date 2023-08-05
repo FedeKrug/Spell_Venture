@@ -1,8 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-
-using Game.Player;
-
 using UnityEngine;
 
 namespace Game.Managers
@@ -13,6 +8,8 @@ namespace Game.Managers
 	{
 		[SerializeField] private FloatSO _playerHealth;
 		[SerializeField] private float _maxHealth;
+		[SerializeField] private int _coinScore;
+
 		public static PlayerManager instance;
 		private void Awake()
 		{
@@ -47,7 +44,7 @@ namespace Game.Managers
 		{
 			if (_playerHealth.value <= 0)
 			{
-				Debug.Log($"Player is dead");
+				Debug.Log($"Player is dead. TODO: agregar feedback de muerte");
 				canMove = false;
 			}
 		}
