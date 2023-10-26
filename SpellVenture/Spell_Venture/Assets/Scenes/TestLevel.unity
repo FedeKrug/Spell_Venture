@@ -897,7 +897,7 @@ GameObject:
   - component: {fileID: 394348107}
   - component: {fileID: 394348108}
   m_Layer: 0
-  m_Name: PlayerManager
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -927,7 +927,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 394348106}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4760cfc91605712419f40265829e906b, type: 3}
+  m_Script: {fileID: 11500000, guid: e1f0bbebe9872db4dad4c1efdc447adc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _playerHealth: {fileID: 11400000, guid: 69a6c04edd018b54e9ca0404914b4d5c, type: 2}
@@ -76501,10 +76501,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 7482667652216324306, guid: c21703b5e9975b54798774ad32256e03, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
@@ -77127,8 +77127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1adcba2011d7fdc40b908912f0e3877e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mainText: {fileID: 0}
-  _healthBar: {fileID: 0}
+  _healthBar: {fileID: 600566706}
 --- !u!1 &907202347
 GameObject:
   m_ObjectHideFlags: 0

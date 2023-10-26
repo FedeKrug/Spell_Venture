@@ -9,11 +9,13 @@ public class HealthTest : MonoBehaviour
 	{
 		if (Input.GetKeyDown(KeyCode.B))
 		{
-			PlayerManager.instance.TakeDamage(_damage);
+			GameManager.instance.TakeDamage(_damage);
+			Debug.Log("Take damage");
 		}
 		if (Input.GetKeyDown(KeyCode.C))
 		{
-			PlayerManager.instance.Heal(_healAmount);
+			GameManager.instance.Heal(_healAmount);
+			Debug.Log("Heal");
 		}
 	}
 }

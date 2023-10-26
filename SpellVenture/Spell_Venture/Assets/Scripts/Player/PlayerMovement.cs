@@ -21,7 +21,7 @@ namespace Game.Player
 		
 		private void Update()
 		{
-			_canMove = PlayerManager.instance.canMove;
+			_canMove = GameManager.instance.canMove;
 			_moveInput = new Vector2(Input.GetAxisRaw(_horizontalAxis), 0).normalized;
 			if (_canMove)
 			{

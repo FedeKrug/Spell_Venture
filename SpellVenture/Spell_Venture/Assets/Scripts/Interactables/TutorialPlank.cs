@@ -16,12 +16,12 @@ namespace Game.Tutorial
 			if (_isOn)
 			{
 				_tutorialPanel.SetActive(true);
-				PlayerManager.instance.canMove = false;
+				GameManager.instance.canMove = false;
 			}
 			else if (!_isOn)
 			{
 				_tutorialPanel.SetActive(false);
-				PlayerManager.instance.canMove = true;
+				GameManager.instance.canMove = true;
 
 			}
 		}

@@ -16,6 +16,6 @@ public class HealthBoost : Collectable
 	[SerializeField] private int _healthPoints;
 	public void Collected()
 	{
-		PlayerManager.instance.Heal(_healthPoints);
+		GameManager.instance.Heal(_healthPoints);
 	}
 }

@@ -23,7 +23,7 @@ namespace Game.Player
 			RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, _raycastDistance, _groundLayers.value);
 			if (hit.collider != null)
 			{
-				Debug.Log(hit.collider);
+				//Debug.Log(hit.collider);
 				_isGrounded = true;
 			}
 			else
